@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Especial 6 meses - Barbara Alexa 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #8B0000, #A52A2A);
+            color: white;
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            padding: 10px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        h1 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: bounce 2s infinite;
+        }
+        
+        .image-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+        }
+        
+        .emoji-large {
+            font-size: 4em;
+            margin: 20px auto;
+            animation: pulse 2s infinite;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .message {
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .button {
+            background: linear-gradient(45deg, #FFE4E1, #FFC0CB);
+            color: #8B0000;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+            border-radius: 25px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+        
+        .button:hover {
+            background: linear-gradient(45deg, #FFC0CB, #FFB6C1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        @media (min-width: 400px) {
+            .buttons-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .countdown {
+            font-size: 1.1em;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: pulse 3s infinite;
+        }
+        
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255,182,193,0.6);
+            animation: fall 4s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                top: -10%;
+                transform: translateX(0px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                transform: translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .celebration {
+            animation: celebration 2s ease-in-out;
+        }
+        
+        @keyframes celebration {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(-5deg); }
+            75% { transform: scale(1.1) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <!-- Tela 1 -->
+        <div id="screen1">
+            <h1>Seja muito bem-vinda Bárbara Alexa!</h1>
+            <div class="image-container">
+                <img src="foto_6mes.png" alt="Foto 6 meses" onerror="this.parentElement.innerHTML='<div class=\'emoji-large\'>📷</div>'">
+            </div>
+            <div class="message">
+                Esse programa foi criado com intuito<br>
+                de comemorar uma data importante! 💕
+            </div>
+            <button class="button" onclick="nextScreen(2)">Seguinte</button>
+        </div>
+        
+        <!-- Tela 2 -->
+        <div id="screen2" class="hidden">
+            <div class="image-container">
+                <img src="emoji_blz-removebg-preview.png" alt="Emoji Feliz" onerror="this.parentElement.innerHTML='<div class=\'emoji-large\'>😊</div>'">
+            </div>
+            <h1>💕 Feliz 6 meses de namoro gatinha! 💕</h1>
+            <div class="countdown">
+                ▶6 MESES◀<br>
+                ▶26 SEMANAS◀<br>
+                ▶181 DIAS◀<br>
+                ▶4344 HORAS◀<br>
+                ▶260640 MINUTOS◀<br>
+                ▶15638400 SEGUNDOS◀!
+            </div>
+            <button class="button" onclick="nextScreen(3)">Seguinte</button>
+        </div>
+        
+        <!-- Tela 3 -->
+        <div id="screen3" class="hidden">
+            <div class="image-container">
+                <img src="emoji_apaixonado-removebg-preview.png" alt="Emoji Apaixonado" onerror="this.parentElement.innerHTML='<div class=\'emoji-large\'>😍</div>'">
+            </div>
+            <div class="message">
+                Nesses meses de namoro, eu fui muito feliz ao seu lado, adoro o facto
+                de não conseguir tirar o sorriso do rosto quando to ctg e sinto que não me falta nada.
+                Fiz isto como forma de agradecimento pela pessoa que você é pra mim e pra todos, tu deixa
+                sempre um rastro de felicidade por onde passa e sinto que aceitaria passar mais muitos
+                anos ao seu lado. Engraçado como num dia qualquer q eu tava jogando volei, acabei achando uma pessoa
+                tão boa assim, ainda mais numa época n tao boa pra mim. Hoje em dia sinto que consigo ser eu msm ctg
+                sem me preocupar, até porque nossas loucuras combinam. Consegues sempre me compreender, me cativar
+                me surpreender e me tirar do tédio q eu semprer senti nas outras pessoas. Você diz pra mim que
+                eu me interessei por vc pela aparência, mas é bem mais que isso, tu é tao unica que me deu vontade
+                de te conhecer melhor e entender seus misterios, n csg explicar direito, mas um dia vo conseguir.
+                De qualquer forma, so tenho a agradecer por vc ser vc e gostava de saber se...
+                (APERTA O BOTÃO AI PFF)
+            </div>
+            <button class="button" onclick="nextScreen(4)">Seguinte</button>
+        </div>
+        
+        <!-- Tela 4 -->
+        <div id="screen4" class="hidden">
+            <h1>ATUALIZAÇÃO</h1>
+            <div class="message">
+                Pa essa parte é mais pra atualizar nossa situação, visto que to escrevendo isso dps da nossa conversa no domingo.
+                Sei que ficaste chateada com oq aconteceu, raiva de mim talvez ou desgosto da minha pessoa, mas saiba
+                que eu nunca quis te magoar, sempre gostei muito de voce e tentei ter sempre respeito pelo
+                nosso relacionamento, se não sentiste isso, me desculpa, mas realmente gosto demasiado de vc pra dx
+                você ir embora assim, entao eu gostava de tentar dnv, do jeito certo e ver se csg te fazer realmente
+                feliz dessa vez, isso claro se você estiver disposta a recomeçar, nao quero te forçar a nd e entendo
+                totalmente se não quiseres apostar na nossa relação dnv, mas nao me custa nada tentar pelo menos
+                Desculpa por te fazer sentir daquele jeito e te fazer chorar, eu te amo babi.
+                Dito isto, gostaria de saber se...(APERTA DNV O BOTÃO AI PFF)
+            </div>
+            <button class="button" onclick="nextScreen(5)">Seguinte</button>
+        </div>
+        
+        <!-- Tela 5 -->
+        <div id="screen5" class="hidden">
+            <div class="image-container">
+                <img src="emoji_rosa-removebg-preview (1).png" alt="Emoji Rosa" onerror="this.parentElement.innerHTML='<div class=\'emoji-large\'>🌹</div>'">
+            </div>
+            <h1>💕2 REAIS OU UM DATE MISTERIOSO?💕</h1>
+            <div class="message">(É 2 REAL, NÃO É 2 EURO)</div>
+            <div class="buttons-container">
+                <button class="button" onclick="showError()">2 REAL</button>
+                <button class="button" onclick="nextScreen(6)">DATE MISTERIO</button>
+            </div>
+        </div>
+        
+        <!-- Tela 6 -->
+        <div id="screen6" class="hidden">
+            <h1 class="celebration">💕SO SUCESSO!! AINDA BEM QUE ACEITASTE💕</h1>
+            <div class="message">
+                DEPOIS VOU FALAR UMA DATA E UMA HORA BOA PA NÓS
+            </div>
+            <div class="emoji-large">🎉</div>
+        </div>
+    </div>
+    
+    <script>
+        // Criar corações caindo
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = Math.random() > 0.5 ? '💕' : '💖';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    heart.style.animationDelay = Math.random() * 2 + 's';
+                    heartsContainer.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 500);
+            }
+        }
+        
+        // Iniciar corações quando carregar
+        window.addEventListener('load', () => {
+            createHearts();
+            setInterval(createHearts, 10000);
+        });
+        
+        function nextScreen(screenNumber) {
+            // Esconder todas as telas com transição suave
+            for (let i = 1; i <= 6; i++) {
+                const screen = document.getElementById('screen' + i);
+                screen.classList.add('hidden');
+            }
+            
+            // Mostrar a tela desejada com pequeno delay para suavidade
+            setTimeout(() => {
+                document.getElementById('screen' + screenNumber).classList.remove('hidden');
+                
+                // Efeitos especiais para tela final
+                if (screenNumber === 6) {
+                    createCelebration();
+                }
+            }, 300);
+        }
+        
+        function showError() {
+            // Efeito de vibração no botão
+            event.target.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                event.target.style.animation = '';
+            }, 500);
+            
+            alert('Essa opção não ta disponível pra ti');
+        }
+        
+        function createCelebration() {
+            // Criar mais corações para celebração
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = ['💕', '💖', '💗', '💝', '🌹'][Math.floor(Math.random() * 5)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                    heart.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                    heartsContainer.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+        
+        function restart() {
+            nextScreen(1);
+        }
+        
+        // Adicionar animação de shake
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Adicionar interações touch para móvel
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'translateY(0) scale(0.95)';
+                });
+                button.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+        
+        // Prevenir zoom no double tap (iOS)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>
